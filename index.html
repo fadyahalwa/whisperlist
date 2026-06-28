@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#F5F3ED" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+  <title>Whisper List — Planner Mingguan</title>
+  <meta name="description" content="Whisper List: planner mingguan yang lembut — kalender, to-do, hal urgen, hidup sehat, ibadah, belajar, dan catatan cepat." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- =================== TAMPILAN AUTENTIKASI =================== -->
+  <div class="auth" id="authView" hidden>
+    <div class="auth__card">
+      <div class="auth__brand">
+        <span class="auth__mark"><img src="logo.png" alt="Logo Whisper List" /></span>
+        <h1 class="auth__title">Whisper List</h1>
+        <p class="auth__tag">Rencana pekanmu, dibisikkan dengan lembut.</p>
+      </div>
+
+      <div class="auth__tabs">
+        <button class="auth__tab is-active" type="button" data-tab="login">Masuk</button>
+        <button class="auth__tab" type="button" data-tab="register">Daftar</button>
+      </div>
+
+      <!-- LOGIN -->
+      <form class="auth__form" id="loginForm" autocomplete="on">
+        <label class="field">
+          <span class="field__label">Email</span>
+          <input type="email" name="email" required placeholder="kamu@email.com" />
+        </label>
+        <label class="field">
+          <span class="field__label">Kata sandi</span>
+          <input type="password" name="password" required placeholder="••••••••" />
+        </label>
+        <p class="auth__err" id="loginErr" hidden></p>
+        <button class="auth__submit" type="submit">Masuk</button>
+      </form>
+
+      <!-- REGISTER -->
+      <form class="auth__form" id="registerForm" autocomplete="on" hidden>
+        <label class="field">
+          <span class="field__label">Nama</span>
+          <input type="text" name="name" required placeholder="Nama panggilanmu" />
+        </label>
+        <label class="field">
+          <span class="field__label">Email</span>
+          <input type="email" name="email" required placeholder="kamu@email.com" />
+        </label>
+        <label class="field">
+          <span class="field__label">Kata sandi</span>
+          <input type="password" name="password" required minlength="4" placeholder="Minimal 4 karakter" />
+        </label>
+        <p class="auth__err" id="registerErr" hidden></p>
+        <button class="auth__submit" type="submit">Buat akun</button>
+      </form>
+
+      <p class="auth__note">Akun & data tersimpan lokal di perangkat ini (offline).</p>
+    </div>
+  </div>
+
+  <!-- =================== APLIKASI =================== -->
+  <div class="app" id="appView" hidden>
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a class="brand" href="#/dashboard" data-nav="dashboard">
+          <span class="brand__mark"><img src="logo.png" alt="" /></span>
+          <span class="brand__title">Whisper List</span>
+        </a>
+        <div class="usermenu">
+          <span class="usermenu__name" id="userName">—</span>
+          <button class="iconcircle" id="themeBtn" type="button" aria-label="Ganti mode gelap/terang"></button>
+          <button class="usermenu__btn" id="logoutBtn" type="button">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg>
+            Keluar
+          </button>
+        </div>
+      </div>
+      <nav class="nav" id="nav" aria-label="Navigasi utama"><!-- diisi JS --></nav>
+    </header>
+
+    <main class="page" id="page"><!-- diisi router --></main>
+
+    <footer class="foot">
+      <span>Whisper List · data tersimpan otomatis di perangkat ini.</span>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
